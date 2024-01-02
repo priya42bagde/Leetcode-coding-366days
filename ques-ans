@@ -37,3 +37,17 @@ var containsDuplicate = function (nums) {
   return [...new Set(nums)].length !== nums.length;
 };
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 2:
+Generate Fibonacci series:
+
+function generateFibonacci(n) {
+  const fibonacciSeries = [0, 1];
+  for (let i = 2; i < n; i++) {
+    const nextFibonacci = fibonacciSeries[i - 2] + fibonacciSeries[i - 1];
+    fibonacciSeries.push(nextFibonacci);
+  }
+  return fibonacciSeries;
+}
+const fibonacciOutput = generateFibonacci(6);
+console.log(fibonacciOutput);
+-------------------------------------------------------------------------------------------------------------------------------------------------------
