@@ -21,3 +21,21 @@ Let's deep dive:
 8.Developer Tools: Provides robust tools like React DevTools for effective debugging and component inspection.
 9.Versatility and Backing: Supports web and mobile app development (React Native) and is maintained by Facebook, ensuring ongoing support and updates.
 ------------------------------------------------------------------------------
+Day 3:
+Interviewer: How can you add 2 different colors at the alternative rows in a html table.
+Let's deep dive:
+
+The question aims to evaluate your familiarity with CSS properties, particularly the nth-child pseudo-class, and how effectively you can apply this 
+knowledge to achieve a specific visual effect, such as alternating row colors in a table. It also assesses your understanding of HTML structure, as 
+you might need to explain the relationship between HTML elements and the corresponding CSS selectors.
+
+:nth-child is a CSS pseudo-class that allows you to select elements based on their position within a parent element. It is used to target elements 
+that match a specific pattern defined by a formula.
+
+For instance:
+:nth-child(2n) selects every even element.
+:nth-child(2n+1) selects every odd element.
+:nth-child(3) selects every third element.
+:nth-child(3n+1) selects elements whose position is 1 more than a multiple of 3, starting from the first element.
+:nth-child(odd) is a keyword equivalent to :nth-child(2n+1).
+:nth-child(even) is a keyword equivalent to :nth-child(2n).
