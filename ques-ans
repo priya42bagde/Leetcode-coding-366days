@@ -67,14 +67,14 @@ var twoSum = function(nums, target) {
     }
 };
 ----------------------------------------
-function twoSum(nums, target) {
-  let vals = {};
+function twoSum(arr, target) {
+  let obj = {};
 
-  for (let i = 0; i < nums.length; i++) {
-    if (target - nums[i] in vals) {
-      return [vals[target-nums[i]], i];
+  for (let i = 0; i < arr.length; i++) {
+    if (target - arr[i] in obj) {
+      return [obj[target-arr[i]], i];
     } else {
-      vals[nums[i]] = i;
+      obj[arr[i]] = i;
     }
   }
   return [];
