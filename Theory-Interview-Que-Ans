@@ -39,3 +39,35 @@ For instance:
 :nth-child(3n+1) selects elements whose position is 1 more than a multiple of 3, starting from the first element.
 :nth-child(odd) is a keyword equivalent to :nth-child(2n+1).
 :nth-child(even) is a keyword equivalent to :nth-child(2n).
+------------------------------------------------------------------------------
+Day 4:
+Interviewer: What are the common breakpoints used in responsive web design?
+
+Let's deep dive:
+Media query breakpoints in CSS can vary based on the specific design and layout requirements of an application. Developers often define breakpoints 
+based on the content and how they want it to adapt to different screen sizes.
+
+Here are some commonly used breakpoints, but please note that these are general guidelines and can differ based on individual project needs:
+
+1. Extra Small Devices (Phones):
+ - @media (max-width: 576px) { ... }
+
+2. Small Devices (Portrait Tablets, Landscape Phones):
+ - @media (min-width: 576px) and (max-width: 768px) { ... }
+
+3. Medium Devices (Landscape Tablets, Small Laptops):
+ - @media (min-width: 768px) and (max-width: 992px) { ... }
+
+4. Large Devices (Desktops, Laptops):
+ - @media (min-width: 992px) and (max-width: 1200px) { ... }
+
+5. Extra Large Devices (Large Screens, TVs):
+ - @media (min-width: 1200px) { ... }
+
+These breakpoints are commonly used for responsive web design to adjust layout, typography, or other design elements to fit different screen sizes. 
+However, they are not strict rules and can be adjusted or expanded upon depending on the specific needs of an application.
+
+Developers might introduce additional breakpoints or customize existing ones to ensure that the application's interface is optimized and remains 
+user-friendly across a wide range of devices and screen sizes. The breakpoints mentioned above are just a starting point, and their actual 
+implementation can differ based on the design choices and the target audience of the application.
+--------------------------------------------------------------------------------
