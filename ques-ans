@@ -107,3 +107,22 @@ var twoSum = function(nums, target) {
     return result;
 };
 ------------------------------------------------------------------------------------------------------------------------------------------------
+Day 4:
+Given an array nums of size n, return the majority element.
+The majority element is the element that appears more than ⌊n / 2⌋ times. You may assume that the majority element always exists in the array.
+Example 1:
+Input: nums = [3,2,3]
+Output: 3
+
+var majorityElement = function(nums) {
+    let map = {}
+    for(let item of nums){
+        if(!map[item]) {
+            map[item] = 1;
+        } else {
+            map[item]++;
+        }
+        if (map[item] >= nums.length/2) return item
+    }
+};
+------------------------------------------------------------------------------------------------------------------------------------------------
