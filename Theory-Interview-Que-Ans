@@ -71,3 +71,15 @@ Developers might introduce additional breakpoints or customize existing ones to 
 user-friendly across a wide range of devices and screen sizes. The breakpoints mentioned above are just a starting point, and their actual 
 implementation can differ based on the design choices and the target audience of the application.
 --------------------------------------------------------------------------------
+Day 5:
+Interviewer: How many ways to make an API call and which is the best among them.
+ 
+Let's deep dive:
+ 
+As for which method is best, it often depends on the specific use case and the preferences of the developer or the project requirements. However, 
+the Fetch API is generally recommended for modern web development due to its native support in modern browsers, its simplicity, and its promise-based 
+syntax. Axios is also favored by many developers due to its ease of use and additional features, especially when working with more complex 
+applications.
+It's essential to consider factors such as browser support, ease of use, features required (like handling interceptors, progress events, etc.), and 
+the overall compatibility with your project when choosing the best method for making API calls in JavaScript.
+--------------------------------------------------------------------------------
