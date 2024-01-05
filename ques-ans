@@ -126,3 +126,51 @@ var majorityElement = function(nums) {
     }
 };
 ------------------------------------------------------------------------------------------------------------------------------------------------
+Day 5: Find Words Containing Character
+Input: words = ["leet","code"], x = "e"
+Output: [0,1]
+Explanation: "e" occurs in both words: "leet", and "code". Hence, we return indices 0 and 1.
+
+/*var findWordsContaining = function(words, x) {
+    return words.reduce((acc, curr, i) => 
+                            curr.includes(x)
+                            ? [...acc, i]
+                            : acc, 
+                        [])
+};
+
+var findWordsContaining = function(words, x) {
+    return words.reduce((acc, curr, i) => 
+                            curr.indexOf(x) > -1 
+                            ? [...acc, i]
+                            : acc, 
+                        [])
+};
+
+const findWordsContaining = (words, x) => {
+  const res = [];
+  words.forEach((word, index) => {
+    if (word.includes(x)) res.push(index);
+  });
+  return res;
+};
+
+function findWordsContaining(words, x) {
+    let indices = [];
+    for (let i = 0; i < words.length; i++) {
+        if (words[i].includes(x)) {
+            indices.push(i);
+        }
+    }
+    return indices;
+} */
+
+var findWordsContaining = function(words, x) {
+    let out = []
+    words.map((word , index)=>{
+        if(word.includes(x)){
+            out.push(index)
+        }
+    })
+    return out
+};
