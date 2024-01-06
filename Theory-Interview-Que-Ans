@@ -83,3 +83,12 @@ applications.
 It's essential to consider factors such as browser support, ease of use, features required (like handling interceptors, progress events, etc.), and 
 the overall compatibility with your project when choosing the best method for making API calls in JavaScript.
 --------------------------------------------------------------------------------
+Day6:
+Interviewer: What are the differences between Redux and Redux-toolkit. 
+Let's deep dive:
+
+Redux Toolkit is like Redux, but it's a more efficient and user-friendly way to write Redux code. Unlike traditional Redux, it cuts down on the amount 
+of code needed to set up the store and manage state, making things simpler and faster. Redux Toolkit provides handy tools like `createSlice` and 
+`configureStore` that streamline the process and also encourages better coding practices, making it easier to write and maintain Redux applications. 
+Overall, it's Redux, but with fewer hassles and more helpful tools to get things done faster and better. 
+-----------------------------------------------------------------------------------
