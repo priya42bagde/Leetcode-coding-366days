@@ -228,3 +228,39 @@ var numIdenticalPairs = function(nums) {
 
     return result;
 };
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 8: Check If Two String Arrays are Equivalent
+
+Input: word1 = ["ab", "c"], word2 = ["a", "bc"]
+Output: true
+Explanation:
+word1 represents string "ab" + "c" -> "abc"
+word2 represents string "a" + "bc" -> "abc"
+The strings are the same, so return true.
+
+/*var arrayStringsAreEqual = function(word1, word2) {
+        let left = ""; // Initialize left and right to empty strings
+        let right = "";
+
+        // Concatenate strings in word1
+        for (let i = 0; i < word1.length; i++) {
+            left += word1[i];
+        }
+
+        // Concatenate strings in word2
+        for (let i = 0; i < word2.length; i++) {
+            right += word2[i];
+        }
+
+        // Use equals() method to compare strings
+        return left === right;
+
+};*/
+
+function arrayStringsAreEqual(word1, word2) {
+    let s1 = word1.join('');
+    let s2 = word2.join('');
+
+    return s1 === s2;
+}
+------------------------------------------------------------------------------------------------------------------------------------------------------
