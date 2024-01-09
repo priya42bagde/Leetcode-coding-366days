@@ -264,3 +264,52 @@ function arrayStringsAreEqual(word1, word2) {
     return s1 === s2;
 }
 ------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 9: How Many Numbers Are Smaller Than the Current Number 
+
+Input: nums = [8,1,2,2,3]
+Output: [4,0,1,1,3]
+Explanation: 
+For nums[0]=8 there exist four smaller numbers than it (1, 2, 2 and 3). 
+For nums[1]=1 does not exist any smaller number than it.
+For nums[2]=2 there exist one smaller number than it (1). 
+For nums[3]=2 there exist one smaller number than it (1). 
+For nums[4]=3 there exist three smaller numbers than it (1, 2 and 2).
+
+
+/*var smallerNumbersThanCurrent = function (nums) {
+  let res = [];
+
+  for (const i of nums) {
+    const c = nums.reduce((count, num) => {
+      if (num < i) count++;
+      return count;
+    }, 0);
+    res.push(c);
+  }
+
+  return res;
+};
+
+var smallerNumbersThanCurrent = function(nums) {
+    const num=[...nums]
+    num.sort((a,b)=>a-b)
+    for(let i=0;i<nums.length;i++){
+        nums[i]=num.indexOf(nums[i])
+    }
+    return nums
+}; */
+
+var smallerNumbersThanCurrent = function(nums) {
+    let ar = []
+   
+    for(let i = 0 ; i<nums.length; i++){
+         let count = 0
+        for(let j=0 ; j<nums.length; j++){
+            if(nums[j] < nums[i]){
+                count++;    
+            } 
+        }
+        ar.push(count)
+    }
+    return ar
+};
