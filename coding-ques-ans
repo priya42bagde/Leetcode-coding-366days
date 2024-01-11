@@ -353,3 +353,43 @@ var frequencySort = function(nums) {
     
 };
 -----------------------------------------------------------------------------------------------------------------------------------------------------
+Day 11: Fizz Buzz
+Example 1:
+
+Input: n = 3
+Output: ["1","2","Fizz"]
+Example 2:
+
+Input: n = 5
+Output: ["1","2","Fizz","4","Buzz"]
+
+/*var fizzBuzz = function(n) {
+    var ans = [];
+
+    for (var i = 1; i <= n; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+            ans.push("FizzBuzz");
+        } else if (i % 3 === 0) {
+            ans.push("Fizz");
+        } else if (i % 5 === 0) {
+            ans.push("Buzz");
+        } else {
+            ans.push(i.toString());
+        }
+    }
+
+    return ans;    
+};*/
+var fizzBuzz = function(n) {
+    let arr = [];
+    let i = 1;
+    
+    while (i <= n){
+        if (i % 3 == 0 & i % 5 == 0) arr.push("FizzBuzz");
+        else if (i % 3 == 0) arr.push("Fizz");
+        else if (i % 5 == 0) arr.push("Buzz");
+        else arr.push(i.toString());
+        i++;
+    }
+    return arr;
+};
