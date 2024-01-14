@@ -450,4 +450,37 @@ const checkString = (s) => {
 
     return true;
 };
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 14: 
+
+/*var isAcronym = function(words, s) {
+    var res="";
+    for(let i=0; i<words.length;i++){
+      res= res+words[i][0];
+    }
+    if(res==s){
+        return true;
+    }
+    return false;
+};
+var isAcronym = function (words, s) {
+  if (words.length !== s.length ) return false;
+
+  for (let i = 0; i < words.length; i++) {
+    if (words[i][0] !== s[i]) return false;
+  }
+  
+  return true;
+};
+const isAcronym = (words, s) => s === words.map( w => w[0]).join('')*/
+var isAcronym = function(words, s) {
+    return words.length === s.length && words.every((v, i) => v[0] === s[i]);
+};
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 15: Check if a String Is an Acronym of Words
+
+Input: words = ["alice","bob","charlie"], s = "abc"
+Output: true
+Explanation: The first character in the words "alice", "bob", and "charlie" are 'a', 'b', and 'c', respectively. Hence, s = "abc" is the acronym. 
 
