@@ -353,6 +353,63 @@ var frequencySort = function(nums) {
     
 };
 -----------------------------------------------------------------------------------------------------------------------------------------------------
+Day 10: Valid Parentheses
+
+Given a string s containing just the characters '(', ')', '{', '}', '[' and ']', determine if the input string is valid.
+An input string is valid if:
+Open brackets must be closed by the same type of brackets.
+Open brackets must be closed in the correct order.
+Every close bracket has a corresponding open bracket of the same type.
+Input: s = "()"
+Output: true
+
+var isValid = function(s) {
+    if (s.length <=1) return false
+    
+    let stack = []
+    let hash = {
+        '(' : ')',
+        '[' : ']',
+        '{' : '}'
+    }
+    
+    for(let i = 0; i < s.length; i++){
+        if (hash[s[i]]) stack.push(hash[s[i]])
+        else if (s[i] !== stack.pop()) return false
+    }
+    return !stack.length
+};
+console.log(isValid("{}[]"))
+/*var isValid = function(s) {
+    if (s.length === 0) {
+        return true;
+    }
+    
+    const stack = [];
+    const bracketMap = {
+        ")": '(',
+        "]": '[',
+        "}": '{',
+    };
+    
+    for(let i = 0; i < s.length; i++) {
+        if (s[i] === '(' || s[i] === '[' || s[i] === '{') {
+		    // add open brackets in the stack
+            stack.push(s[i]);
+        } else {
+		    // remove the latest item in stack if it matches the current closing bracket
+            if (stack[stack.length - 1] === bracketMap[s[i]]) {
+                stack.pop();
+            } else {
+                return false;
+            }
+            
+        } 
+    }
+    // string is valid if all matching brackets are removed from the stack
+    return stack.length === 0;
+};*/
+-----------------------------------------------------------------------------------------------------------------------------------------------------
 Day 11: Fizz Buzz
 Example 1:
 
