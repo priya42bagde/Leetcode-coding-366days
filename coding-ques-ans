@@ -540,4 +540,83 @@ Day 15: Check if a String Is an Acronym of Words
 Input: words = ["alice","bob","charlie"], s = "abc"
 Output: true
 Explanation: The first character in the words "alice", "bob", and "charlie" are 'a', 'b', and 'c', respectively. Hence, s = "abc" is the acronym. 
+/*var isAcronym = function(words, s) {
+    var res="";
+    for(let i=0; i<words.length;i++){
+      res= res+words[i][0];
+    }
+    if(res==s){
+        return true;
+    }
+    return false;
+};
+var isAcronym = function (words, s) {
+  if (words.length !== s.length ) return false;
+
+  for (let i = 0; i < words.length; i++) {
+    if (words[i][0] !== s[i]) return false;
+  }
+  
+  return true;
+};
+const isAcronym = (words, s) => s === words.map( w => w[0]).join('')*/
+var isAcronym = function(words, s) {
+    return words.length === s.length && words.every((v, i) => v[0] === s[i]);
+};
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------
+Day 16:  Isomorphic Strings
+All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character, but a character may map to itself.
+
+ 
+
+Example 1:
+
+Input: s = "egg", t = "add"
+Output: true
+Example 2:
+
+Input: s = "foo", t = "bar"
+Output: false
+
+/*var isIsomorphic = function(s, t) {
+    
+    for (let i=0; i<s.length; i++) {
+
+        if (s.indexOf(s[i]) !== t.indexOf(t[i])) {
+            
+            return false;
+        }
+    }
+    return true;
+};
+
+var isIsomorphic = function (s, t) {
+  if (s.length != t.length) return false;
+  let sArr = [];
+  let tArr = [];
+  for (let i = 0; i < s.length; i++) {
+    sArr.push(s.indexOf(s[i]));
+    tArr.push(t.indexOf(t[i]));
+    if (sArr[i] != tArr[i]) return false;
+  }
+  return true;
+};*/
+
+var isIsomorphic = function(s, t) {
+    let arr1 = {}
+    let arr2 = {}
+    for (let i=0;i<s.length;i++) {
+        if(arr1[s[i]] !== arr2[t[i]]) {
+            return false
+        }else{
+            arr1[s[i]] = i,
+            arr2[t[i]] = i
+        }
+    }
+    return true
+};
+
 
