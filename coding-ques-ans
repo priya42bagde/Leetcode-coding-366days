@@ -675,4 +675,22 @@ var reverseString = function(s) {
 };
 
 ======================================================================================================================================================
-Day 19:
+Day 19: Check If String Is a Prefix of Array
+
+Input: s = "iloveleetcode", words = ["i","love","leetcode","apples"]
+Output: true
+Explanation:
+s can be made by concatenating "i", "love", and "leetcode" together.
+
+var isPrefixString = function(s, words) {
+    let compareStr = '';
+
+    for (let i = 0; i < words.length; i++) {
+        compareStr = compareStr + words[i];
+        if (compareStr === s) {
+            return true;
+        }
+    }
+
+    return false;
+};
