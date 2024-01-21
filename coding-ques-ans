@@ -706,8 +706,25 @@ var isAnagram = function(s, t) {
 };
 
 ======================================================================================================================================================
-Day 21 :
+Day 21 : Check If a Word Occurs As a Prefix of Any Word in a Sentence
 
+Input: sentence = "i love eating burger", searchWord = "burg"
+Output: 4
+Explanation: "burg" is prefix of "burger" which is the 4th word in the sentence.
+
+/*var isPrefixOfWord = function (sentence, searchWord) {
+    let words = sentence.split(' ')
+
+    for (let i = 0; i < words.length; i++) {
+        if (words[i].startsWith(searchWord)) return i + 1
+    }
+
+    return -1
+};*/
+
+function isPrefixOfWord(sentence, searchWord){
+  return sentence.split(' ').findIndex(e => e.startsWith(searchWord)) + 1 || -1;
+}
 ======================================================================================================================================================
 Day 22:
 
