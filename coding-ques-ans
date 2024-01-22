@@ -726,7 +726,60 @@ function isPrefixOfWord(sentence, searchWord){
   return sentence.split(' ').findIndex(e => e.startsWith(searchWord)) + 1 || -1;
 }
 ======================================================================================================================================================
-Day 22:
+Day 22: Jewels and Stones
+
+Example 1:
+
+Input: jewels = "aA", stones = "aAAbbbb"
+Output: 3
+Example 2:
+
+Input: jewels = "z", stones = "ZZ"
+Output: 0
+
+/*var numJewelsInStones = function(jewels, stones) {
+    let count = 0;
+
+    for(let i=0; i<jewels.length;i++){
+        for(let j=0; j<stones.length; j++){
+            if(jewels[i]===stones[j]){
+               count++;
+            }
+        }
+    }
+    return count;
+    
+};
+var numJewelsInStones = function(J, S) {
+
+	// declare a count & length variable 
+
+    let count = 0
+    let len = S.length
+	
+	// Iterate through the longest array S. Increment count by 1 if it exists in J
+	
+    for (let i = 0; i < len; i++){
+        if (J.indexOf(S[i]) >= 0){
+            count++
+        }
+    }
+    return count
+};
+
+var numJewelsInStones = function(jewels, stones) {
+   let count = 0;
+   for(let val of stones){
+       if(jewels.includes(val)){
+           count++;
+        }
+    }
+    return count;
+};*/
+
+var numJewelsInStones = function(jewels, stones) {
+    return [...stones].reduce((a,e)=>a+jewels.includes(e),0)
+};
 
 ======================================================================================================================================================
 Day 23:
