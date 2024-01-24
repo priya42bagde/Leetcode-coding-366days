@@ -794,7 +794,24 @@ Output: 1
 const daysBetweenDates = (D1, D2, DF = Math.abs((new Date(D1) - new Date(D2)))) => DF / (1000 * 60 * 60 * 24)
 
 ======================================================================================================================================================
-Day 2
+Day 24:  Count Elements With Maximum Frequency
+
+Input: nums = [1,2,2,3,1,4]
+Output: 4
+Explanation: The elements 1 and 2 have a frequency of 2 which is the maximum frequency in the array.
+So the number of elements in the array with maximum frequency is 4.
+
+var maxFrequencyElements = function (nums) {
+    const obj = {}
+    nums.forEach((n) => obj[n] ? obj[n]++ : obj[n] = 1)
+
+    const max = Math.max(...Object.values(obj))
+    return Object.values(obj).reduce((acc, cur) => {
+        if (cur == max) {
+            acc += cur
+        } return acc
+    }, 0)
+};
 
 ======================================================================================================================================================
 Day 2
