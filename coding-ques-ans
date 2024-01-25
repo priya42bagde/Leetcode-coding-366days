@@ -814,7 +814,37 @@ var maxFrequencyElements = function (nums) {
 };
 
 ======================================================================================================================================================
-Day 2
+Day 25: Is Object Empty
+Example 1:
+
+Input: obj = {"x": 5, "y": 42}
+Output: false
+Explanation: The object has 2 key-value pairs so it is not empty.
+Example 2:
+
+Input: obj = {}
+Output: true
+Explanation: The object doesn't have any key-value pairs so it is empty.
+
+
+/*var isEmpty = function(obj) {
+    for (let key in obj)
+        return false;
+    return true;
+};
+
+If array/object is not empty, interpreter will enter the for-in loop and hence first return statement (false) will be executed.
+If array/object is empty, interpreter won't enter for-in loop and hence second return statement (true) will be executed.
+*/
+
+var isEmpty = function(obj) {
+  if (Array.isArray(obj)) {
+    return obj.length === 0;
+  } else if (typeof obj === 'object') {
+    return Object.keys(obj).length === 0;
+  }
+  return false; 
+};
 
 ======================================================================================================================================================
 Day 2
