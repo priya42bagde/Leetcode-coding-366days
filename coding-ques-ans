@@ -847,5 +847,39 @@ var isEmpty = function(obj) {
 };
 
 ======================================================================================================================================================
+Day 26: Longest Valid Parentheses
+
+Input: s = "(()"
+Output: 2
+Explanation: The longest valid parentheses substring is "()".
+
+function longestValidParentheses(s) {
+    let stack = [-1]; // Initialize stack with -1 to handle edge case where the first character is ')'
+    let maxLength = 0;
+
+    for (let i = 0; i < s.length; i++) {
+        if (s[i] === '(') {
+            stack.push(i); // Push the index of an open parenthesis onto the stack
+        } else {
+            stack.pop(); // Pop the top element from the stack
+
+            if (stack.length === 0) {
+                stack.push(i); // If stack becomes empty, push the current index onto the stack
+            } else {
+                // Calculate the length of the valid substring and update maxLength
+                maxLength = Math.max(maxLength, i - stack[stack.length - 1]);
+            }
+        }
+    }
+
+    return maxLength; // Return the length of the longest valid parenthesis substring
+}
+
+======================================================================================================================================================
 Day 2
 
+======================================================================================================================================================
+Day 2
+
+======================================================================================================================================================
+Day 2
