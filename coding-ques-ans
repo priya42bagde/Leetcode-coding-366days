@@ -977,4 +977,91 @@ function findDuplicate(arr){
 // }
 
 ======================================================================================================================================================
-Day 2
+Day 29: Join Two Arrays by ID
+Input: 
+arr1 = [
+    {"id": 1, "x": 2, "y": 3},
+    {"id": 2, "x": 3, "y": 6}
+], 
+arr2 = [
+    {"id": 2, "x": 10, "y": 20},
+    {"id": 3, "x": 0, "y": 0}
+]
+Output: 
+[
+    {"id": 1, "x": 2, "y": 3},
+    {"id": 2, "x": 10, "y": 20},
+    {"id": 3, "x": 0, "y": 0}
+]
+Explanation: The two objects with id=1 and id=3 are included in the result array without modifiction. The two objects with id=2 are merged together. The keys from arr2 override the values in arr1.
+
+
+/*var join = function(arr1, arr2) {
+    const result = {};
+
+    // 1. initialization
+    arr1.forEach(item => {
+        result[item.id] = item;
+    });
+    // 2. joining
+    arr2.forEach(item => {
+        if (result[item.id]) {
+            Object.keys(item).forEach(key => {
+                result[item.id][key] = item[key];    
+            });
+        } else {
+            result[item.id] = item;
+        }
+    });
+
+    return Object.values(result);
+};
+
+var join = function(arr1, arr2) {
+  const combinedArray = arr1.concat(arr2);
+  const merged = {};
+
+  combinedArray.forEach((obj) => {
+    const id = obj.id;
+    if (!merged[id]) {
+      merged[id] = { ...obj };
+    } else {
+      merged[id] = { ...merged[id], ...obj };
+    }
+  });
+
+  const joinedArray = Object.values(merged);
+  joinedArray.sort((a, b) => a.id - b.id);
+
+  return joinedArray;
+}; 
+
+var join = function(arr1, arr2) {
+    let map={},arrs=[...arr1,...arr2].map((e)=> map[e.id]={...map[e.id],...e})
+    return [...Object.values(map)]
+};*/
+
+var join = function(arr1, arr2) {
+    let items = arr1.concat(arr2);
+
+    let result = {};
+
+    for(const obj of items) {
+        if(!result[obj.id]) {
+            result[obj.id] = obj;
+            continue;
+        } 
+
+        result[obj.id] = {...result[obj.id], ...obj};
+    }
+
+    return Object.values(result);
+};
+======================================================================================================================================================
+Day 30
+
+======================================================================================================================================================
+Day 31
+
+======================================================================================================================================================
+Feb-Day 1
