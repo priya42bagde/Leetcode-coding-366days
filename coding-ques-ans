@@ -1081,7 +1081,45 @@ nums = nums.filter(a => a % 6 ===0)
 return nums.length ? parseInt(nums.reduce((a,b) => a + b )/ nums.length) : 0
 };
 ======================================================================================================================================================
-Day 31
+Day 31: Richest Customer Wealth
+
+Input: accounts = [[1,5],[7,3],[3,5]]
+Output: 10
+Explanation: 
+1st customer has wealth = 6
+2nd customer has wealth = 10 
+3rd customer has wealth = 8
+The 2nd customer is the richest with a wealth of 10.
+
+/*var maximumWealth = function(accounts) {
+        var res = 0;
+        for(var i =0;i<accounts.length;i++){
+            var temp = 0;
+            for(var j = 0;j<accounts[i].length;j++){
+                temp+=accounts[i][j];
+            }
+            res = Math.max(res,temp);
+        }
+        return res;
+};
+var maximumWealth = function(accounts) {
+    return Math.max(...accounts.map(account => 
+        account.reduce((accumulator, current) => accumulator + current, 0)
+    ))
+};*/
+
+var maximumWealth = function (accounts) {
+  let max = 0;
+
+  accounts.forEach((element) => {
+    let sum = element.reduce(function (x, y) {
+      return x + y;
+    }, 0);
+    if (max < sum) max = sum;
+  });
+
+  return max;
+};
 
 ======================================================================================================================================================
 Feb-Day 1
