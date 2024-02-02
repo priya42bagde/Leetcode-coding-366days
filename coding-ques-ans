@@ -1144,7 +1144,30 @@ var restoreString = function(s, indices) {
 };
 
 ======================================================================================================================================================
+Feb Day 2: Factorial Trailing Zeroes
 
+Given an integer n, return the number of trailing zeroes in n!.
+
+Note that n! = n * (n - 1) * (n - 2) * ... * 3 * 2 * 1.
+
+Example 1:
+
+Input: n = 3
+Output: 0
+Explanation: 3! = 6, no trailing zero.
+
+var trailingZeroes = function(n) {
+    // Negative Number Edge Case...
+    if (n < 0) return -1;
+    // Initialize the output result i.e., the number of trailing zeroes...
+	let output = 0;
+    // Count number of 5s in prime factors of n!
+	for (let idx = 5; n/idx >= 1; idx *= 5) { //n=3, id=5,25...
+		output += Math.floor(n/idx);
+	}
+    // Return the number of trailing zeroes...
+    return output;
+};
 
 ======================================================================================================================================================
 
