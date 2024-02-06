@@ -1260,7 +1260,38 @@ var findTheDifference = function(s, t) {
 console.log(findTheDifference( "abcd", "abcde"))*/
 
 ======================================================================================================================================================
+Feb Day 6: Group Anagram
 
+Input: strs = ["eat","tea","tan","ate","nat","bat"]
+Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+
+/*const groupAnagrams = strs => {
+    const map = {};
+    
+    for (let str of strs) {
+        const key = [...str].sort().join('');
+
+        if (!map[key]) {
+            map[key] = [];
+        }
+
+        map[key].push(str);
+    }
+    
+    return Object.values(map);
+};
+//console.log(groupAnagrams(["eat","tea","tan","ate","nat","bat"]))
+
+var groupAnagrams = function(strs) {
+    let map = {}
+    
+    for (let str of strs) {
+        let key = [...str].sort()
+        map[key] = map[key] ? [...map[key], str] : [str]
+    }
+    
+    return Object.values(map)
+};
 
 ======================================================================================================================================================
 
