@@ -1294,7 +1294,45 @@ var groupAnagrams = function(strs) {
 };
 
 ======================================================================================================================================================
+Feb Day 7: Sort Characters By Frequency
 
+Input: s = "tree"
+Output: "eert"
+Explanation: 'e' appears twice while 'r' and 't' both appear once.
+So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid answer.
+
+/*var frequencySort = function(s) {
+    const mp = new Map();
+    for (const char of s) {
+        mp.set(char, (mp.get(char) || 0) + 1);
+    }
+    
+    const r = new Map([...mp.entries()].sort((a, b) => b[1] - a[1]));
+    let ss = '';
+    for (const [char, freq] of r.entries()) {
+        ss += char.repeat(freq);
+    }
+    
+    return ss;
+};
+
+var frequencySort = function(s) {
+    
+    const charMap = s.split('').reduce((acc, cur) => {acc[cur] = (acc[cur] || 0) + 1; return acc} , {})
+    
+    const sortedArr = Object.keys(charMap).sort((a, b) => charMap[b] - charMap[a]);
+    
+    return sortedArr.reduce((acc, cur) => acc + cur.repeat(charMap[cur]) ,'')
+};*/
+
+var frequencySort = function(s) {
+   var map = {}
+   for(var i = 0; i < s.length; i++) {
+       map[s[i]] = map[s[i]] ? map[s[i]]+1 : 1
+   }
+    var keys = Object.keys(map).sort((a, b) => {return map[b] - map[a]})
+    return "".concat(...keys.map((item) => {return item.repeat(map[item])}))
+};
 
 ======================================================================================================================================================
 
