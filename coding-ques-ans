@@ -1434,3 +1434,36 @@ var helper = function(candidates, target, tmpArr, idx){
 helper(candidates, target, [], 0)
 return result;
 }
+
+
+function combinationSum2(arr, target) {
+    const result = [];
+    
+    // Sort the array to ensure duplicates are not considered
+    arr.sort((a, b) => a - b);
+    
+    // Helper function to backtrack and find combinations
+    function backtrack(startIndex, currentSum, combination) {
+        // Base case: if the currentSum equals target, add the combination to the result
+        if (currentSum === target) {
+            result.push([...combination]);
+            return;
+        }
+        
+        // Explore all possible combinations
+        for (let i = startIndex; i < arr.length; i++) {
+            // Skip duplicates
+            if (i > startIndex && arr[i] === arr[i - 1]) continue;
+            
+            // If adding the current element doesn't exceed the target, backtrack
+            if (currentSum + arr[i] <= target) {
+                combination.push(arr[i]);
+                backtrack(i + 1, currentSum + arr[i], combination);
+                combination.pop();
+            }
+        }
+    }
+    
+    backtrack(0, 0, []);
+    return result;
+}
