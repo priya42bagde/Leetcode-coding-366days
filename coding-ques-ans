@@ -1382,4 +1382,55 @@ iterate(nums, []);
 return res;
 };
 ------------------------------------
+Feb Day 9: Combination Sum II
+Input: candidates = [10,1,2,7,6,1,5], target = 8
+Output: 
+[
+[1,1,6],
+[1,2,5],
+[1,7],
+[2,6]
+]
 
+/*var combinationSum2 = function(c, target) {
+    c.sort((a,b)=>a-b)
+    let res = []
+
+    let iterate = (index,sum,temp) =>{
+        if(sum>target) return;
+        if(sum == target){
+            res.push(temp)
+            return;
+        }
+        // 1 1 2 5 6 7 10 
+        for(let i =index; i<c.length;i++){
+            if(i != index && c[i] == c[i-1]) continue;
+            iterate(i+1,sum+c[i],[...temp,c[i]])
+        }
+    }
+    iterate(0,0,[])
+    return res;
+};*/
+
+var combinationSum2 = function(candidates, target) {
+var result = []
+candidates.sort((a,b) => a-b)
+var helper = function(candidates, target, tmpArr, idx){
+    if(target == 0){ // when target reaches zero, means that you can push it into the result
+        result.push(tmpArr.slice())
+        return
+    }
+    if(target < 0){ //with recursion, your 'target' might get reduced till below zero and at that point of time it's time to stop the recursion
+        return
+    }
+    for(var i = idx; i < candidates.length; i++){ //simulating whether to take or not to take every single digit
+        if(idx == i || candidates[i] != candidates[i - 1]){
+            tmpArr.push(candidates[i])
+            helper(candidates, target - candidates[i], tmpArr, i + 1)
+            tmpArr.pop()    
+        }   
+    }   
+}
+helper(candidates, target, [], 0)
+return result;
+}
