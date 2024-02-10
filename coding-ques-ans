@@ -1467,3 +1467,46 @@ function combinationSum2(arr, target) {
     backtrack(0, 0, []);
     return result;
 }
+---------------------------------------------------------------------------------------------
+Feb Day 10- Isomorphic Strings
+
+Input: s = "egg", t = "add"
+Output: true
+
+/*var isIsomorphic = function(s, t) {
+    
+    for (let i=0; i<s.length; i++) {
+
+        if (s.indexOf(s[i]) !== t.indexOf(t[i])) {
+            
+            return false;
+        }
+    }
+    return true;
+};
+
+var isIsomorphic = function (s, t) {
+  if (s.length != t.length) return false;
+  let sArr = [];
+  let tArr = [];
+  for (let i = 0; i < s.length; i++) {
+    sArr.push(s.indexOf(s[i]));
+    tArr.push(t.indexOf(t[i]));
+    if (sArr[i] != tArr[i]) return false;
+  }
+  return true;
+};*/
+
+var isIsomorphic = function(s, t) {
+    let arr1 = {}
+    let arr2 = {}
+    for (let i=0;i<s.length;i++) {
+        if(arr1[s[i]] !== arr2[t[i]]) {
+            return false
+        }else{
+            arr1[s[i]] = i,
+            arr2[t[i]] = i
+        }
+    }
+    return true
+};
