@@ -1545,3 +1545,34 @@ function findLengthOfLCIS(nums) {
 
   return ans
 };
+-----------------------------------------------------------------------------------
+Feb Day 12: Delete Characters to Make Fancy String
+
+Input: s = "leeetcode"
+Output: "leetcode"
+Explanation:
+Remove an 'e' from the first group of 'e's to create "leetcode".
+No three consecutive characters are equal, so return "leetcode".
+
+/*var makeFancyString = function (s) {
+  let result = s.split("");
+
+  for (let i = 0; i < result.length; i++) {
+    if (result[i] === result[i + 1] && result[i + 1] === result[i + 2]) {
+      result[i] = "";
+    }
+  }
+
+  return result.join("");
+};*/
+
+const makeFancyString = function (s) {
+  let output = ''
+
+  for (let i = 0; i < s.length; i++) {
+    output += s[i] === s[i - 1] && s[i] === s[i - 2] ? '' : s[i]
+  }
+
+  return output;
+};
+-----------------------------------------------------------------------------------
