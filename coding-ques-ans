@@ -1656,3 +1656,31 @@ var sortArrayByParityII = function(A) {
     return res;
 };
 ----------------------------------------------------------------
+Feb Day 15: Check If String Is a Prefix of Array
+Input: s = "iloveleetcode", words = ["i","love","leetcode","apples"]
+Output: true
+Explanation:
+s can be made by concatenating "i", "love", and "leetcode" together.
+
+/*var isPrefixString = function(s, words) {
+    let compareStr = '';
+
+    for (let i = 0; i < words.length; i++) {
+        compareStr = compareStr + words[i];
+        if (compareStr === s) {
+            return true;
+        }
+    }
+
+    return false;
+};*/
+
+const isPrefixString = (s, w) => {
+    let tmp = '';
+    for (const e of w) {
+        tmp += e;
+        if (tmp == s) return true; 
+    }
+    return false;
+};
+-------------------------------------------------------
