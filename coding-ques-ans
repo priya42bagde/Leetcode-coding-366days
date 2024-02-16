@@ -1684,3 +1684,35 @@ const isPrefixString = (s, w) => {
     return false;
 };
 -------------------------------------------------------
+Feb Day 16: Chunk Array
+
+Example 1:
+
+Input: arr = [1,2,3,4,5], size = 1
+Output: [[1],[2],[3],[4],[5]]
+Explanation: The arr has been split into subarrays each with 1 element.
+Example 2:
+
+Input: arr = [1,9,6,3,2], size = 3
+Output: [[1,9,6],[3,2]]
+Explanation: The arr has been split into subarrays with 3 elements. However, only two elements are left for the 2nd subarray.
+
+/*var chunk = function(arr, size) {
+    let result=[];
+    for(let i=0; i<arr.length;i=i+size){
+     result.push(arr.slice(i,i+size))
+    }
+    return result
+};*/
+
+var chunk = function(arr, size) {
+  var chunkedArray = [];
+  var index = 0;
+
+  while (index < arr.length) {
+    chunkedArray.push(arr.slice(index, index + size));
+    index += size;
+  }
+
+  return chunkedArray;
+}
