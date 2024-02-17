@@ -1716,3 +1716,34 @@ var chunk = function(arr, size) {
 
   return chunkedArray;
 }
+----------------------------------------------------------------------------
+Feb Day 17: Arranging Coins
+
+Input: n = 5
+Output: 2
+Explanation: Because the 3rd row is incomplete, we return 2.
+
+var arrangeCoins = function(n) {
+    let rows=0;
+
+    while(n>rows){
+        rows= rows+1;
+        n = n-rows;
+    }
+
+    return rows;
+};
+/*
+var arrangeCoins = function (n) {
+    let sum = 0;
+    for(let i=0;i<=n;i++){
+        sum = sum + i
+        if(sum === n){
+            return i
+        }
+        if(sum >= n){
+            return i-1
+        }
+    }
+};*/
+
