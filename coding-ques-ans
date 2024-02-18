@@ -1746,4 +1746,45 @@ var arrangeCoins = function (n) {
         }
     }
 };*/
+-------------------------------------------------------------------
+Feb Day 18: Filter Elements from Array
 
+Input: arr = [0,10,20,30], fn = function greaterThan10(n) { return n > 10; }
+Output: [20,30]
+Explanation:
+const newArray = filter(arr, fn); // [20, 30]
+The function filters out values that are not greater than 10
+
+/*var filter = function(arr, fn) {
+    var filteredArr = [];
+    for (var i = 0; i < arr.length; i++) {
+        if (fn(arr[i], i)) {
+            filteredArr.push(arr[i]);
+        }
+    }
+    return filteredArr;
+};
+
+var filter = function(arr, fn) {
+  return arr.reduce((result, value, index) => {
+    if (fn(value, index)) {
+      result.push(value);
+    }
+    return result;
+  }, []);
+};
+
+var filter = function(arr, fn) {
+  const result = [];
+  arr.forEach((value, index) => {
+    if (fn(value, index)) {
+      result.push(value);
+    }
+  });
+  return result;
+};*/
+
+var filter = function(arr, fn) {
+    return arr.flatMap((i, j) => fn(i, j) ? [i] : []);
+};
+--------------------------------------------------------
