@@ -1835,6 +1835,52 @@ var findDelayedArrivalTime = function (arrivalTime, delayedTime) {
         return totalTime;
     } else { // else return subtraction of totalTime to 24
         return totalTime - 24;
-    }
+    }/*var missingNumber = function (nums) {
+  const n = nums.length;
+  const expectedSum = (n * (n + 1)) / 2;
+  let actualSum = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    actualSum = actualSum + nums[i]
+  }
+  
+  return expectedSum-actualSum
+};*/
+
+var missingNumber = function(nums) {
+  const n = nums.length;
+
+  const expectedSum = (n * (n + 1)) / 2;
+  const actualSum = nums.reduce((sum, num) => sum + num, 0);
+
+  return expectedSum - actualSum;
+}
 };
 ------------------------------------------------
+Feb Day 20:Missing Number
+
+Input: nums = [3,0,1]
+Output: 2
+Explanation: n = 3 since there are 3 numbers, so all numbers are in the range [0,3]. 2 is the missing number in the range since it does not appear in nums.
+
+/*var missingNumber = function (nums) {
+  const n = nums.length;
+  const expectedSum = (n * (n + 1)) / 2;
+  let actualSum = 0;
+
+  for (let i = 0; i < nums.length; i++) {
+    actualSum = actualSum + nums[i]
+  }
+  
+  return expectedSum-actualSum
+};*/
+
+var missingNumber = function(nums) {
+  const n = nums.length;
+
+  const expectedSum = (n * (n + 1)) / 2;
+  const actualSum = nums.reduce((sum, num) => sum + num, 0);
+
+  return expectedSum - actualSum;
+}
+--------------------------------------------------------
