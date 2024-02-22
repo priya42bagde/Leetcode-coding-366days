@@ -1923,3 +1923,34 @@ var maximumValue = function(strs) {
     return ans
 };
 --------------------------------------------------------
+Feb Day 22: Intersection of Multiple Arrays
+
+Given a 2D integer array nums where nums[i] is a non-empty array of distinct positive integers, return the list of integers that are present in each array of nums sorted in ascending order.
+ 
+/*var intersection = function(nums) {
+     let ref = [...nums[0]]
+     for(let i = 1; i < nums.length; i++){
+         ref = ref.filter(n => nums[i].includes(n))
+     }
+    return ref.sort((a,b) => a-b)
+};
+
+var intersection = function (nums) {
+  const result = [];
+  for (let i = 0; i < nums[0].length; i++) {
+    if (nums.every((x) => x.includes(nums[0][i]))) {
+      result.push(nums[0][i]);
+    }
+  }
+  return result.sort((a, b) => a - b);
+};*/
+
+var intersection = function(nums) {
+    const res = []
+    for (let i = 0; i < nums[0].length; i++) {
+        const num = nums[0][i]
+        if (nums.every(el => el.includes(num))) res.push(num)
+    }
+    return res.sort((a,b) => a - b)
+};
+--------------------------------------------------------
