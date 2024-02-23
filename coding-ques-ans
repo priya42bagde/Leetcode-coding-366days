@@ -1954,3 +1954,39 @@ var intersection = function(nums) {
     return res.sort((a,b) => a - b)
 };
 --------------------------------------------------------
+Feb Day 23: Percentage of Letter in String
+
+Input: s = "foobar", letter = "o"
+Output: 33
+Explanation:
+The percentage of characters in s that equal the letter 'o' is 2 / 6 * 100% = 33% when rounded down, so we return 33.
+
+/*
+var percentageLetter = function(s, letter) {
+    let count =0;
+    for(let i=0; i<=s.length; i++){
+      if(s[i]=== letter){
+        count++;
+      }
+    }
+    let res = (count/s.length)*100
+    return res;
+};
+
+const percentageLetter = (s, letter) => Math.floor((s.length - s.replaceAll(letter, '').length) * 100 / s.length);
+
+
+var percentageLetter = function (s, letter) {
+    let letterFilter = s.split('').filter(char => char == letter)
+	
+    return Math.trunc((letterFilter.length/ s.length) * 100)
+}; */
+
+var percentageLetter = function(s, letter) {
+    const count= s.split('').reduce((a,c)=>{
+        if(c==letter) a++
+        return a
+    },0)
+    return Math.floor((count/s.length)*100)
+};
+--------------------------------------------------------------
