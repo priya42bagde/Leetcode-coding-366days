@@ -1990,3 +1990,29 @@ var percentageLetter = function(s, letter) {
     return Math.floor((count/s.length)*100)
 };
 --------------------------------------------------------------
+Feb Day 24: Split Strings by Separator
+
+Example 1:
+
+Input: words = ["one.two.three","four.five","six"], separator = "."
+Output: ["one","two","three","four","five","six"]
+
+/*var splitWordsBySeparator = function(words, separator) {
+  return words.join(separator).split(separator).filter(Boolean)
+};
+
+var splitWordsBySeparator = function (words, separator) {
+  const res = []
+
+  for (let i = 0; i < words.length; i++) {
+    const splited = words[i].split(separator)
+    const filtered = splited.filter(item => item.length > 0)
+    res.push(...filtered)
+  }
+
+  return res
+};*/
+
+var splitWordsBySeparator = function(words, separator) {
+    return words.join(separator).split(separator).filter(e=>e.length)
+};
