@@ -2182,3 +2182,56 @@ var duplicateZeros = function(arr) {
     }
 };
 ----------------------------
+March Day 3: Palindrome Number
+
+Given an integer x, return true if x is a 
+palindrome
+, and false otherwise.
+
+Example 1:
+Input: x = 121
+Output: true
+Explanation: 121 reads as 121 from left to right and from right to left.
+
+/*var isPalindrome = function(x) {
+   if(x<0) return false;
+   if(x.toString()===x.toString().split('').reverse().join('')) return true;
+   return false;  
+}
+
+var isPalindrome = function(x) {
+  if (x < 0) return false
+
+  let rev = 0
+  for(let i = x; i >= 1; i = Math.floor(i/10)) rev = rev*10 + i%10
+  return rev === x
+}; 
+
+var isPalindrome = function(x) {
+    const arr = String(x).split('');
+        
+    while (arr.length > 1) {
+        if (arr.shift() !== arr.pop()) {
+            return false;
+        }
+    }
+    
+    return true;
+};*/
+
+var isPalindrome = function (x) {
+  const str = x.toString();
+  let leftIndex = 0;
+  let rightIndex = str.length - 1;
+
+  while (leftIndex < rightIndex) {
+    if (str.charAt(leftIndex) !== str.charAt(rightIndex)) {
+      return false;
+    }
+    leftIndex++;
+    rightIndex--;
+  }
+
+  return true;
+};
+-------------------------------------------------------
