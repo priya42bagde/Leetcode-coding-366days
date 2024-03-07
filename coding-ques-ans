@@ -2398,3 +2398,42 @@ var validMountainArray = function(arr) {
     }
     return true;
 };
+----------------------------------------------------------------------
+March Day 7: Count Pairs Whose Sum is Less than Target
+
+Input: nums = [-1,1,2,3,1], target = 2
+Output: 3
+Explanation: There are 3 pairs of indices that satisfy the conditions in the statement:
+- (0, 1) since 0 < 1 and nums[0] + nums[1] = 0 < target
+- (0, 2) since 0 < 2 and nums[0] + nums[2] = 1 < target 
+- (0, 4) since 0 < 4 and nums[0] + nums[4] = 0 < target
+Note that (0, 3) is not counted since nums[0] + nums[3] is not strictly less than the target.
+
+/*var countPairs = function(nums, target) {
+    let count = 0;
+    for(let i=0; i< nums.length; i++){
+        for(let j=i+1; j<nums.length; j++){
+            if(nums[i]+nums[j]<target){
+              count++;
+            }
+        }
+    }
+    return count;
+};*/
+
+var countPairs = function(nums, target) {
+    nums.sort((a, b) => a-b); // sort the vector nums
+    let count = 0; // variable to store the count
+    let left = 0; // variable to store the left
+    let right = nums.length-1; // variable to store the right
+    while(left < right){ // loop until left is less than right
+        if(nums[left] + nums[right] < target){ // if nums[left] + nums[right] is less than target
+            count += right-left; // update the count  // All pairs with nums[left] contribute to the count
+            left++; // increment the left
+        }
+        else{ // else
+            right--; // decrement the right
+        }
+    }
+    return count; // return the count
+};
