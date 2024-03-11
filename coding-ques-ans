@@ -2530,3 +2530,37 @@ var maximumNumberOfStringPairs = function(words) {
     return count
 };
 ---------------------------------------
+March Day 11: Sort the People
+
+Example 1:
+
+Input: names = ["Mary","John","Emma"], heights = [180,165,170]
+Output: ["Mary","Emma","John"]
+Explanation: Mary is the tallest, followed by Emma and John.
+
+/*var sortPeople = function (names, heights) {
+  //creating a array to store name , height as key value pair
+  let d = [];
+  for (let i = 0; i < names.length; i++) {
+    d.push([names[i], heights[i]]);
+  }
+  //sorting heights based on decending order
+  d.sort((a, b) => b[1] - a[1]);
+
+  d = d.map((x) => x[0]);
+  return d;
+};
+
+var sortPeople = function(names, heights) {
+    let track = names.map((name, ind) => ({name:names[ind], age : heights[ind]}));
+    
+    track.sort((a,b) => b.age - a.age);
+    
+    return track.map(person => person.name)
+    
+};*/
+
+var sortPeople = function(names, heights) {
+    return new Array(names.length).fill(null).map((item, index) => ({name: names[index], height: heights[index]})).sort((a, b) => b.height - a.height).map(({name}) => name);
+};
+----------------------------------------------------------------
