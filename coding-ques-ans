@@ -2622,3 +2622,28 @@ var minLength = function(s) {
     }
     return arr.length
 };
+----------------------------------------------------------------
+March Day 14: Minimum Number of Steps to Make Two Strings Anagram
+Input: s = "bab", t = "aba"
+Output: 1
+Explanation: Replace the first 'a' in t with b, t = "bba" which is anagram of s.
+
+
+var minSteps = function(s, t) {
+    /*  create a hashMap for s iterate throgh t 
+        and check how many letters are missing
+		O(N) - time
+		O(1) - space, since there are only 26 letters in the alphabet
+    */
+    let hashMap = {};
+    for (let letter of s) {
+        if (hashMap[letter]) hashMap[letter] ++;
+        else hashMap[letter] = 1;
+    }
+    let changes = 0;
+    for (let letter of t) {
+        if (hashMap[letter]) hashMap[letter] --;
+        else changes ++;
+    }
+    return changes;
+};
