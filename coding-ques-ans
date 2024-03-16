@@ -2647,3 +2647,54 @@ var minSteps = function(s, t) {
     }
     return changes;
 };
+----------------------------------------------------------------------------
+March Day 15:
+
+------------------------------------------------------------------------------
+March Day 16: Contiguous Array
+
+
+var findMaxLength = function(nums) {
+    const map = new Map();
+    map.set(0, -1);
+    let maxLen = 0;
+    let count = 0;
+
+    for (let i = 0; i < nums.length; i++) {
+        count += nums[i] === 0 ? -1 : 1;
+
+        if (map.has(count)) {
+            maxLen = Math.max(maxLen, i - map.get(count));
+        } else {
+            map.set(count, i);
+        }
+    }
+
+    return maxLen;
+};
+
+
+Initializing Variables:
+
+We start by initializing a Map called map to store cumulative sums and their corresponding indices. We set the initial cumulative sum of 0s and 1s encountered to index -1 since at the beginning we haven't encountered any elements.
+We initialize maxLen to keep track of the maximum length of the contiguous subarray found so far.
+We initialize count to keep track of the cumulative sum of 0s and 1s encountered so far.
+Iterating through the Array:
+
+We iterate through the nums array using a for loop.
+Updating Cumulative Sum:
+
+For each element in the array, we update the count variable:
+If the element is 0, we decrement count by 1.
+If the element is 1, we increment count by 1.
+Checking for Contiguous Array:
+
+We check if the current cumulative sum count is already in the map.
+If it is present, it means that we have encountered the same cumulative sum before. This implies that the subarray between the current index and the index stored in the map for the same cumulative sum has an equal number of 0s and 1s. We update maxLen accordingly by finding the difference in indices.
+If it is not present, we store the current cumulative sum count in the map with its corresponding index.
+Updating Maximum Length:
+
+During each iteration, we update the maximum length of the contiguous subarray found so far.
+Returning the Result:
+
+Finally, we return maxLen, which represents the maximum length of a contiguous subarray with an equal number of 0s and 1s.
