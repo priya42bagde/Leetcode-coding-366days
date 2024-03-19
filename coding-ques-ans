@@ -2733,3 +2733,26 @@ var buildArray = function (nums) {
 
   return result;
 };
+----------------------------------------------------------------------
+March Day 19: Most Frequent Number Following Key In an Array
+Example 1:
+
+Input: nums = [1,100,200,1,100], key = 1
+Output: 100
+Explanation: For target = 100, there are 2 occurrences at indices 1 and 4 which follow an occurrence of key.
+No other integers follow an occurrence of key, so we return 100.
+
+const mostFrequent = (nums, key) => {
+  const freq = {};
+  let ret = 0;
+  for (let i = 0, max = 0; i < nums.length - 1; i++) {
+    if (nums[i] !== key) continue;
+    const target = nums[i + 1];
+    freq[target] = (freq[target] || 0) + 1;
+    if (freq[target] > max) {
+      max = freq[target];
+      ret = target;
+    }
+  }
+  return ret;
+};
